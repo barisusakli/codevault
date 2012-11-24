@@ -3,6 +3,7 @@ body,html {
 	padding:0px;
 	height:100%;
 	background-color:#ccc;
+	font-family: source-sans-pro, serif;
 }
 
 a:link { 
@@ -45,10 +46,17 @@ ul li {
 	margin-right:auto;
 }
 
-#top-bar-content span {
-	padding-right:480px;
+#top-bar-content a.logo {
+	/*padding-right:480px;*/
 	font-weight: bold;
 	text-shadow: 1px 1px #ffffff;
+	display: block;
+}
+
+#top-bar-content .top-bar-nav {
+	float: right;
+	font-size: 12px;
+	margin-top: -3px;
 }
 
 
@@ -110,16 +118,28 @@ ul li {
 }
 
 .code-snippet{
-	/*white-space: pre-wrap;       /* css-3 */
-	/*white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-	/*white-space: -pre-wrap;      /* Opera 4-6 */
-	/*white-space: -o-pre-wrap;    /* Opera 7 */
-	/*word-wrap: break-word;       /* Internet Explorer 5.5+ */
 	max-height:800px;
 	overflow:auto;
+	padding: 12px;
+	border: 1px solid #aaa;
 }
 
 .code-background {
 	background-color: #EEE;
 	border: 1px dotted #666;
 }
+
+.latestPosts {
+	padding: 12px;
+	border: 1px solid #aaa;
+	margin: 12px;
+}
+
+	.latestPosts li {
+		padding: 0;
+		margin-bottom: 6px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		font-size: 12px;
+	}

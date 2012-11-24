@@ -161,3 +161,6 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+sftp-config.json
+php/config/config.php
