@@ -1,13 +1,23 @@
+.code-form .inline {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+
 .code-form label {
-	
+	font-size: 13px;
+	font-weight: bold;
+	font-variant: small-caps;
+	color: #999;
 }
 
 .code-form input {
-	width:95%;
+	border: 1px solid #999;
 }
 
 .code-form select {
 	margin:0px;
+	border: 1px solid #999;
 }
 
 .code-form textarea {
@@ -15,12 +25,13 @@
 	height:660px;
 	max-width:95%;
 	font-size:10pt;
-	font-family:consolas;
+	font-family: source-code-pro, serif, monospace;
+	white-space: pre;
+	border: 1px solid #999;
 }
 
-
 button {
-	border:1px solid black;
+	border: 1px solid #999;
 	padding-top:5px;
 	padding-bottom:5px;
 	padding-left:10px;

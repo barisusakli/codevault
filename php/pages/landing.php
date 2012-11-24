@@ -1,3 +1,1 @@
-<div class='ui-widget'>
-Welcome To CodeVault!
-</div>
+<h1>Welcome To CodeVault!</h2>
