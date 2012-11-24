@@ -78,8 +78,6 @@ var codespaz = (function (my) {
 		var containerDiv = jQuery("<div class='code-background'></div>");
 		var codeDiv = jQuery("<pre id='resultDiv' class='code-snippet'>"+escapeHtml(postData.code)+"</pre>");
 
-		codeDiv.css("border","1px dotted #666");
-		
 		var languageClass = languages[postData.language];
 		codeDiv.addClass(languageClass);
 			
@@ -111,7 +109,7 @@ var codespaz = (function (my) {
 			var parsedResult = JSON.parse(result);
 			if(parsedResult.status === 1) {
 				
-				var ul = jQuery("<ul></ul>");
+				var ul = jQuery('<ul class="latestPosts"></ul>');
 				var postData = parsedResult.data;
 				for(var index in parsedResult.data)	{
 					createPostLink(ul,index,postData);

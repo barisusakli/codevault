@@ -17,7 +17,8 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/codeform.css">
 
-
+	<script src="http://use.edgefonts.net/source-sans-pro.js"></script>
+	<script src="http://use.edgefonts.net/source-code-pro.js"></script>
 </head>
 
 <body>
@@ -25,10 +26,14 @@
 
 		<div id='top-bar'>
 			<div id='top-bar-content'>
-				<a href="index.php"><span class='ui-widget'>CODEVAULT</span></a>
-				<a href="index.php?page=newpost">New Post</a> | <a href="#">Profile</a> | <a href="?page=about">About</a> | <a href="?page=faq">Faq</a>
-				
-				<input id="search" placeholder='search'/>
+				<div class="top-bar-nav">
+					<a href="index.php?page=newpost">New Post</a> |
+					<a href="#">Profile</a> |
+					<a href="?page=about">About</a> |
+					<a href="?page=faq">Faq</a>
+					<input id="search" placeholder='search'/>
+				</div>
+				<a href="index.php" class="logo">CODEVAULT</a>
 			</div>
 		</div>
 
