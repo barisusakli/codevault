@@ -199,3 +199,9 @@ var codespaz = (function (my) {
 	return my;
 
 }(codespaz || {}));
+
+requirejs.config({
+	baseUrl: 'js'
+});
+
+$(document).ready(codespaz.init);
