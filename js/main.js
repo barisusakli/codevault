@@ -133,17 +133,6 @@ var codespaz = (function (my) {
 		}
 		selectElement.val("JavaScript");
 		
-		
-		jQuery("#search").click(function(){
-			if(this.value === 'search')
-				this.value = '';
-		});
-		
-		jQuery("#search").blur(function(){
-			if(this.value === '')
-				this.value = 'search';
-		});
-		
 		my.renderLatest(jQuery("#side-bar"));
 		
 		$("#formSubmitButton").click(function(){
