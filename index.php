@@ -41,8 +41,9 @@
 			<div id='content'>
 				<div id='page-wrapper'>
 					<?php
-						if(isset($_GET['page']))
-							include('php/pages/'.$_GET['page'].'.php');
+						if(isset($_GET['page'])){
+							if(file_exists('php/pages/'.$_GET['page'].'.php'))
+								include('php/pages/'.$_GET['page'].'.php');
 							$moduled_pages = array('newpost');
 							if (in_array($_GET['page'], $moduled_pages)) {
 								echo "
@@ -53,6 +54,7 @@
 									</script>
 								";
 							}
+						}
 						else if(isset($_GET['post'])) {
 					?><script>
 						require(['main'], function() {
@@ -74,7 +76,7 @@
 		<div>
 		<div id='footer'>
 			<div id='footer-content'>
-				<a href="?legal.php">Legal</a> | <a href="#">Contact</a> | <a href="#">Terms</a> 
+				<a href="?page=legal">Legal</a> | <a href="#">Contact</a> | <a href="#">Terms</a> 
 			</div>
 		</div>
 	</div>

@@ -52,25 +52,17 @@ var codespaz = (function (my) {
 		  .replace(/"/g, "&quot;")
 		  .replace(/'/g, "&#039;");
 
-	}
+	};
 	
 	function createErrorMsg(message) {
-		return jQuery('<div class="ui-widget">\
-			<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> \
-				<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> \
-				<strong>Alert:</strong>'+message+'</p>\
-			</div>\
-		</div>');
-	}
-	
-	function callback(){
-	
-	
-	}
+		return jQuery('<div class="ui-widget"></div>')
+					.append('<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"></div>').find('.ui-state-error')
+					.append('<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span><strong>Alert:</strong>'+message+'</p>');
+	};
 	
 	my.getPostDate = function (timestamp) {
 		return new Date(timestamp*1000).toLocaleString();
-	}
+	};
 	
 	my.renderPost = function (container,postData) {
 		var titleElement = jQuery("<span class='ui-widget'>"+postData.title+"</span>");
@@ -85,7 +77,7 @@ var codespaz = (function (my) {
 		container.append(titleElement);
 		container.append(codeDiv);
 		sh_highlightDocument('js/libs/shjs-0.6/lang/', '.js');
-	}
+	};
 	
 	function createPostLink(ul, index, postData) {
 		var title = postData[index].title;
@@ -93,11 +85,11 @@ var codespaz = (function (my) {
 			title = "Empty Title";
 		var li = jQuery("<li><a href='?post="+postData[index].postID+"'>"+title+"</a></li>");
 		
-		/*li.click(function(){
-			my.loadPost(postData[index].postID);
-		});*/
+		///li.click(function(){
+	//		my.loadPost(postData[index].postID);
+	//	});
 		ul.append(li);
-	}
+	};
 	
 	my.renderLatest = function(container) {
 		$.ajax({
@@ -118,7 +110,7 @@ var codespaz = (function (my) {
 			}
 				
 		});
-	}
+	};
 	
 	my.loadPost = function(postID) {
 		$.ajax({
@@ -131,7 +123,7 @@ var codespaz = (function (my) {
 			if(parsedResult.status === 1)
 				my.renderPost(jQuery("#page-wrapper"),parsedResult.data);
 		});
-	}
+	};
 	
 	my.init = function() {		
 		
@@ -165,13 +157,13 @@ var codespaz = (function (my) {
 			if(title === ""){
 				var errorMsg = createErrorMsg('Please enter a title');
 				jQuery("#form-errors").append(errorMsg);
-				jQuery("#form-errors").show( "bounce", {}, 100, callback);
+				jQuery("#form-errors").show( "bounce", {}, 100, function(){});
 				return;
 			}
 			if(code === ""){
 				var errorMsg = createErrorMsg('Please enter code');
 				jQuery("#form-errors").append(errorMsg);
-				jQuery("#form-errors").show( "bounce", {}, 100, callback);
+				jQuery("#form-errors").show( "bounce", {}, 100, function(){});
 				return;
 			}
 
@@ -192,8 +184,8 @@ var codespaz = (function (my) {
 		
 		
 		console.log("init done");
-	}
-	
+	};
+
 	return my;
 
 }(codespaz || {}));
