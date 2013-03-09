@@ -1,6 +1,6 @@
 
 
-var codespaz = (function (my) {
+var codevault = (function (module) {
 	"use strict";
 	var languages = {
 			"Bison":"sh_bison",
@@ -60,11 +60,11 @@ var codespaz = (function (my) {
 					.append('<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span><strong>Alert:</strong>'+message+'</p>');
 	};
 	
-	my.getPostDate = function (timestamp) {
-		return new Date(timestamp*1000).toLocaleString();
+	module.getPostDate = function (timestamp) {
+		return new Date(timestamp * 1000).toLocaleString();
 	};
 	
-	my.renderPost = function (container,postData) {
+	module.renderPost = function (container, postData) {
 		var titleElement = jQuery("<span class='ui-widget'>"+postData.title+"</span>");
 			
 		var containerDiv = jQuery("<div class='code-background'></div>");
@@ -83,15 +83,13 @@ var codespaz = (function (my) {
 		var title = postData[index].title;
 		if(title === "")
 			title = "Empty Title";
+			
 		var li = jQuery("<li><a href='?post="+postData[index].postID+"'>"+title+"</a></li>");
 		
-		///li.click(function(){
-	//		my.loadPost(postData[index].postID);
-	//	});
 		ul.append(li);
 	};
 	
-	my.renderLatest = function(container) {
+	module.renderLatest = function(container) {
 		$.ajax({
 		  type: "POST",
 		  url: "php/api.php",
@@ -112,7 +110,7 @@ var codespaz = (function (my) {
 		});
 	};
 	
-	my.loadPost = function(postID) {
+	module.loadPost = function(postID) {
 		$.ajax({
 		  type: "POST",
 		  url: "php/api.php",
@@ -121,11 +119,11 @@ var codespaz = (function (my) {
 					  
 			var parsedResult = JSON.parse(result);
 			if(parsedResult.status === 1)
-				my.renderPost(jQuery("#page-wrapper"),parsedResult.data);
+				module.renderPost(jQuery("#page-wrapper"),parsedResult.data);
 		});
 	};
 	
-	my.init = function() {		
+	module.init = function() {		
 		
 		var selectElement = jQuery("#post-language");
 		for(var key in languages) {
@@ -133,7 +131,7 @@ var codespaz = (function (my) {
 		}
 		selectElement.val("JavaScript");
 		
-		my.renderLatest(jQuery("#side-bar"));
+		module.renderLatest(jQuery("#side-bar"));
 		
 		$("#formSubmitButton").click(function(){
 			var title = jQuery("#post-title")[0].value;
@@ -165,7 +163,7 @@ var codespaz = (function (my) {
 			}).done(function( result ) {
 			  var parsedResult = JSON.parse(result);
 			  if(parsedResult.status === 1)
-				my.renderPost(jQuery("#page-wrapper"),postData);
+				module.renderPost(jQuery("#page-wrapper"),postData);
 				window.location.href = '?post='+parsedResult.data.postID;
 			});
 			
@@ -175,12 +173,12 @@ var codespaz = (function (my) {
 		console.log("init done");
 	};
 
-	return my;
+	return module;
 
-}(codespaz || {}));
+}(codevault || {}));
 
 requirejs.config({
 	baseUrl: 'js'
 });
 
-$(document).ready(codespaz.init);
+$(document).ready(codevault.init);

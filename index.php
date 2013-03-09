@@ -58,7 +58,7 @@
 						else if(isset($_GET['post'])) {
 					?><script>
 						require(['main'], function() {
-							codespaz.loadPost(<?php echo $_GET['post']?>);
+							codevault.loadPost(<?php echo $_GET['post']?>);
 						});
 					</script>
 					<?php
